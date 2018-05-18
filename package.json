@@ -1,0 +1,37 @@
+{
+  "name": "ws-blogging",
+  "version": "1.0.0",
+  "description": "Travel, hike, ramble and get and update your knowlodge here. It's a backend APIs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=app nodemon app.js",
+    "lint": "eslint app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandhyalalkumar/ws-blogging.git"
+  },
+  "author": "Sandhyalal Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandhyalalkumar/ws-blogging/issues"
+  },
+  "homepage": "https://github.com/sandhyalalkumar/ws-blogging#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "debug": "^3.1.0",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "PORT": 4000
+    }
+  }
+}
