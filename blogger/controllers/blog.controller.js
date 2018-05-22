@@ -117,5 +117,22 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-
+    Blog.findByIdAndRemove(req.params.blogId)
+    .then(function(blog){
+        if(!blog) {
+            return res.status(404).send({
+                message: "Blog not found with id " + req.params.blogId
+            });
+        }
+        res.send({ message: "Blog deleted successfully!"});
+    }).catch(function(err){
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Blog not found with id " + req.params.blogId
+            });                
+        }
+        return res.status(500).send({
+            message: "Could not delete blog with id " + req.params.blogId
+        });
+    });
 };
